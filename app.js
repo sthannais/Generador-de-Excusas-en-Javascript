@@ -9,15 +9,21 @@ let when = [
 ];
 
 function onLoad(who, what, when) {
-  let where = who.concat(what);
+  let generateLetterAleatory = GenerateRandom(who);
+  let generateLetterAleatory2 = GenerateRandom(what);
+  let generateLetterAleatory3 = GenerateRandom(when);
 
-  let why = where.concat(when);
-
-  return GenerateRandom(why);
+  return (
+    generateLetterAleatory +
+    " " +
+    generateLetterAleatory2 +
+    " " +
+    generateLetterAleatory3
+  );
 }
 
-function GenerateRandom(why) {
-  return why[Math.floor(Math.random() * why.length)];
+function GenerateRandom(array) {
+  return array[Math.floor(Math.random() * array.length)];
 }
 
 document.getElementById("excuse").innerHTML = onLoad(who, what, when);
